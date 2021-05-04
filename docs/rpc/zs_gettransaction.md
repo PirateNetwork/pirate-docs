@@ -69,6 +69,5 @@ Result:
 ```
 
 ### Examples:
-> pirate-cli zs_gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
-
-> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "zs_gettransaction", "params": ["1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/
+`pirate-cli zs_gettransaction "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"`
+`curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "zs_gettransaction", "params": ["1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/`

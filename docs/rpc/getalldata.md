@@ -28,8 +28,7 @@ Arguments:
 ```
 
 ### Examples:
-> pirate-cli getalldata 0
-
-> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getalldata", "params": [0] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/
+`pirate-cli getalldata 0`
+`curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getalldata", "params": [0] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/`
 
 
