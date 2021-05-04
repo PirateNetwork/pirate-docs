@@ -98,7 +98,7 @@ The example below will consolidate only **zs1xyzS** sapling address's notes (zut
 
 i.e.:
 - zs1xyz1 address has 10 notes -> they will be swept to zs1xyzS
-- zs1xyzC address has 50 notes -> they will be consolidated into 1 note on zs1xyzS
+- zs1xyzS address has 50 notes -> they will be consolidated into 1 note on zs1xyzS
 - ...
 - zs1xyzN address has 10 notes -> they will be swept to zs1xyzS
 - wallet.dat has 400 transactions out of which 100 unlinked transactions are 200 blocks old -> 0 transactions will be deleted
