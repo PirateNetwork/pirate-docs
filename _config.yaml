@@ -3,6 +3,7 @@ title: Pirate Chain Wiki
 description: Pirate Chain (ARRR) Documentation and Integration Guides
 
 baseurl: "/"
+url: "https://piratenetwork.github.io"
 
 search_enabled: true
 search:
@@ -61,3 +62,23 @@ gh_edit_repository: "https://github.com/piratenetwork/piratewiki.github.io" # th
 gh_edit_branch: "master" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
+
+
+plugins:
+  - jekyll-seo-tag
+
+
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+  # ignore:
+  #   envs: all
