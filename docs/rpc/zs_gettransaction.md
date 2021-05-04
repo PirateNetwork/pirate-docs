@@ -12,8 +12,8 @@ Returns a decrypted Pirate transaction.
 ```
 Arguments:
 1. "txid:"   (string, required) 
-
-
+```
+```
 Result:
    "txid":  "transactionid",           (string)  The transaction id.
    "coinbase": "coinbase",             (string)  Coinbase transaction, true or false
