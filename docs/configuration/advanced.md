@@ -80,6 +80,8 @@ This setting is of particular interest to exchanges to consolidate notes on thei
 ### sweep
 As opposed to **consolidation** this parameter sweeps all zutxos (notes) from all z addresses to 1 designated zaddr.
 
+#### sweep
+
 Default is 0. Set to 1 to enable.
 
 `sweep=1`
@@ -88,12 +90,12 @@ Note
 {: .label .label-blue }
 When **sweep** is enabled consolidation will only run on the sweep address specified.
 
-### sweepsaplingaddress
+#### sweepsaplingaddress
 When **sweep** is enabled a sweep z address must be specified.
 
 `sweepsaplingaddress=zs1.....`
 
-### sweeptxfee
+#### sweeptxfee
 Fee amount in arrrtoshis used to send sweep transactions.
 
 Default is 0. While using 0 fee may seem economical there is a chance that not all 0 txfee transactions will be included in blocks by miners. Recommended is 10000 arrrtoshi or 0.0001 ARRR which is the standard txfee.
