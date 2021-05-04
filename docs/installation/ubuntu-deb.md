@@ -48,7 +48,7 @@ sudo ln -sf /home/$USER/pirate/src/pirated /usr/local/bin/pirated
 pirated &
 ```
 
-```diff
-- !!! IMPORTANT !!!
-```
+
+{: .text-red-300} !!! IMPORTANT !!!
+
 On first run of daemon the configuration file is created in ***~/.komodo/PIRATE/PIRATE.conf*** <- you can specify a different location by passing **-datadir=/path/to/data/dir** when running the daemon (***!!!*** if you do so you will need to run that param every time you run/restart the daemon)
