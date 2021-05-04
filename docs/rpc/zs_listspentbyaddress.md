@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 
+title: zs_listspentbyaddress
 parent: RPC / CLI
 nav_order: 5
 ---
