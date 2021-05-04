@@ -30,4 +30,4 @@ This initial configuration is regularly enough for regular users with no heavy u
 
 Note: you can specify a different location by passing **-datadir=/path/to/data/dir** when starting the daemon (***!!!*** if you do so you will need to run that parameter every time you run/restart the daemon)
 
-Note2: if you are integrating Pirate Chain in an exchange, payment processor or run a mining operation please see Enhanced Configuration & Examples sections.
+Note2: if you are integrating Pirate Chain in an exchange, payment processor or run a mining operation please see Advanced Configuration & Examples sections.
