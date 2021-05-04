@@ -13,9 +13,9 @@ permalink: docs/installation
 
 Please see below the instructions to install Pirate daemon, best practices and tips.
 
-```diff
-- !!! IMPORTANT !!!
-```
+!!! IMPORTANT !!!
+{: .label .label-red }
+
 PirateChain (ARRR) is a fully shielded chain and ***ONLY*** uses zs addresses - transparent addresses are ***NOT*** permitted to perform transactions other than generating coinbase (mining) and notarizations by elected KMD notaries; the usual RPC commands generally don't apply
 
 RPC commands for Pirate start with z_ -> see **pirate-cli help** for a list of available commands
