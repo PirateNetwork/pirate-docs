@@ -3,7 +3,6 @@ title: Pirate Chain Wiki
 description: Pirate Chain (ARRR) Documentation and Integration Guides
 
 baseurl: "/"
-url: "https://piratenetwork.github.io"
 
 search_enabled: true
 search:
