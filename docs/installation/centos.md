@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CentOS
+title: CentOS 7/8
 parent: Installation
 nav_order: 2
 ---
