@@ -35,4 +35,6 @@ Result:
 ```
 
 ### Examples:
-`pirate-cli z_createbuildinstructions "[{\"txid\":\"myid\",\"index\":0\"type\":\"sapling\"},...]"`
+```
+pirate-cli z_createbuildinstructions "[{\"txid\":\"myid\",\"index\":0\"type\":\"sapling\"},...]"
+```

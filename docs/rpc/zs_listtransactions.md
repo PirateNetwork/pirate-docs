@@ -96,14 +96,26 @@ Result:
 ```
 
 ### Examples:
-```pirate-cli zs_listtransactions```
+```
+pirate-cli zs_listtransactions
+```
 
-```pirate-cli zs_listtransactions 1```
+```
+pirate-cli zs_listtransactions 1
+```
 
-```pirate-cli zs_listtransactions 1 1 30 200```
+```
+pirate-cli zs_listtransactions 1 1 30 200
+```
 
-```curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "zs_listtransactions", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/```
+```
+curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "zs_listtransactions", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/
+```
 
-```curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "zs_listtransactions", "params": [1] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/```
+```
+curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "zs_listtransactions", "params": [1] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/
+```
 
-```curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "zs_listtransactions", "params": [1 1 30 200] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/```
+```
+curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "zs_listtransactions", "params": [1 1 30 200] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/
+```
