@@ -37,8 +37,8 @@ Default Parameters:
 3. 0 - Returns all transactions
 4. 0 - Ignored
 5. 100000 - Return the last 9,999,999 transactions.
-
-
+```
+```
 Result:
    "txid":  "transactionid",           (string)  The transaction id.
    "coinbase": "coinbase",             (string)  Coinbase transaction, true or false
