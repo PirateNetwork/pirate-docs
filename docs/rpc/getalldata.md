@@ -27,8 +27,6 @@ Arguments:
 4. "Include Watch Only"   (bool, optional, Default = false) 
 ```
 
-Result:
-
 ### Examples:
 > pirate-cli getalldata 0
 
