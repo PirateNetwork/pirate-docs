@@ -2,9 +2,10 @@
 layout: default
 title: Ubuntu/Debian
 parent: Installation
+nav_order: 1
 ---
 
-***1. Install dependencies***
+## Install dependencies
 
 ```
 sudo apt-get update && sudo apt-get upgrade -y
@@ -13,13 +14,13 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool libncurses-dev unzip git python zlib1g-dev wget bsdmainutils automake libboost-all-dev libssl-dev libprotobuf-dev protobuf-compiler libgtest-dev libqt4-dev libqrencode-dev libdb++-dev ntp ntpdate software-properties-common libevent-dev curl libcurl4-gnutls-dev cmake clang libsodium-dev jq htop -y
 ```
 
-***2. Clone repository***
+## Clone repository
 
 ```
 git clone https://github.com/PirateNetwork/pirate
 ```
 
-***3. Build daemon***
+## Build daemon
 
 ```
 cd ~/pirate 
@@ -29,7 +30,7 @@ cd ~/pirate
 ./zcutil/build.sh -j$(nproc)
 ```
 
-***4. Set shortcuts for ease of use and start the daemon:***
+## Set shortcuts for ease of use and start the daemon
 
 ```
 sudo ln -sf /home/$USER/pirate/src/pirate-cli /usr/local/bin/pirate-cli 
