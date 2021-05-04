@@ -2,12 +2,14 @@
 layout: default
 title: Installation
 nav_order: 2
+has_children: true
+permalink: docs/installation
 ---
 
 ## Pirate Installation Guide
-
+{: .no_toc }
 ### Build from source (recommended)
-
+{: .no_toc }
 Please see below the instructions to install Pirate daemon, best practices and tips.
 
 ```diff
@@ -27,6 +29,3 @@ Tested and supported on:
 * CentOS:
   * 7
   * 8
-
-See instructions for Ubuntu / Debian here.
-See instructions for Centos 7 / 8 here.
