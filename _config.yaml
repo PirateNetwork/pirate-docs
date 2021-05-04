@@ -35,8 +35,29 @@ search:
 # Supports true (default) or false
 heading_anchors: true
 
+# Aux links for the upper right navigation
+aux_links:
+  "Pirate Chain Website":
+    - "https://pirate.black"
+
+# Makes Aux links open in a new tab. Default is false
+aux_links_new_tab: true
+
 # Footer content
 # appears at the bottom of every page's main content
 # Note: The footer_content option is deprecated and will be removed in a future major release. Please use `_includes/footer_custom.html` for more robust
 # markup / liquid-based content.
+
+# Back to top link
+back_to_top: true
+back_to_top_text: "Back to top"
+
 footer_content: "Copyright &copy; 2018-2021 <a href=\"https://pirate.black\" target=\"_blank\">Pirate Chain</a> Crew. Distributed by an <a href=\"https://github.com/piratenetwork/piratenetwork.github.io/tree/master/LICENSE.txt\" target=\"_blank\">MIT license.</a>"
+
+# Footer "Edit this page on GitHub" link text
+gh_edit_link: true # show or hide edit this page link
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/piratenetwork/piratewiki.github.io" # the github URL for your repo
+gh_edit_branch: "master" # the branch that your docs is served from
+# gh_edit_source: docs # the source that your files originate from
+gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
