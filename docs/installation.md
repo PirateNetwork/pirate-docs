@@ -1,3 +1,9 @@
+---
+layout: default
+title: Installation
+nav_order: 2
+---
+
 ## Pirate Installation Guide
 
 ### Build from source (recommended)
