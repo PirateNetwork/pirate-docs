@@ -17,7 +17,7 @@ PirateChain (ARRR) is a fully shielded chain and ***ONLY*** uses zs addresses - 
 
 RPC commands for Pirate start with z_ -> see **pirate-cli help** for a list of available commands
 
-***1. Build the daemon***
+***1. Install dependencies***
 
 ```
 sudo apt-get update && sudo apt-get upgrade -y
@@ -26,19 +26,23 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoconf libtool libncurses-dev unzip git python zlib1g-dev wget bsdmainutils automake libboost-all-dev libssl-dev libprotobuf-dev protobuf-compiler libgtest-dev libqt4-dev libqrencode-dev libdb++-dev ntp ntpdate software-properties-common libevent-dev curl libcurl4-gnutls-dev cmake clang libsodium-dev jq htop -y
 ```
 
+***2. Clone repository***
+
 ```
 git clone https://github.com/PirateNetwork/pirate
 ```
 
+***3. Build daemon***
+
 ```
-cd pirate 
+cd ~/pirate 
 
 ./zcutil/fetch-params.sh
 
 ./zcutil/build.sh -j$(nproc)
 ```
 
-***2. Set shortcuts for ease of use and start the daemon:***
+***4. Set shortcuts for ease of use and start the daemon:***
 
 ```
 sudo ln -sf /home/$USER/pirate/src/pirate-cli /usr/local/bin/pirate-cli 
