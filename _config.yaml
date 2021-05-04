@@ -2,6 +2,8 @@ remote_theme: mrmlynch/just-the-docs
 title: Pirate Chain Wiki
 description: Pirate Chain (ARRR) Documentation and Integration Guides
 
+baseurl: "/"
+
 search_enabled: true
 search:
   # Split pages into sections that can be searched individually
