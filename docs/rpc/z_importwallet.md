@@ -1,0 +1,32 @@
+---
+layout: default
+title: z_importwallet
+parent: RPC / CLI
+nav_order: 21
+---
+
+## z_importwallet "filename"
+
+Imports taddr and zaddr keys from a wallet export file (see z_exportwallet).
+
+```
+Arguments:
+1. "filename"    (string, required) The wallet file
+```
+
+### Examples:
+
+Dump the wallet
+```
+pirate-cli z_exportwallet "nameofbackup"
+```
+
+Import the wallet
+```
+pirate-cli z_importwallet "path/to/exportdir/nameofbackup"
+```
+
+Import using the json rpc call
+```
+curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "z_importwallet", "params": ["path/to/exportdir/nameofbackup"] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/
+```

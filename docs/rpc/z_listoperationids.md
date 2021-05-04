@@ -1,0 +1,30 @@
+---
+layout: default
+title: z_listoperationids
+parent: RPC / CLI
+nav_order: 23
+---
+
+## z_listoperationids
+
+Returns the list of operation ids currently known to the wallet.
+
+```
+Arguments:
+1. "status"         (string, optional) Filter result by the operation's state e.g. "success".
+```
+```
+Result:
+[                     (json array of string)
+  "operationid"       (string) an operation id belonging to the wallet
+  ,...
+]
+```
+
+### Examples:
+```
+pirate-cli z_listoperationids 
+```
+```
+curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "z_listoperationids", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/
+```

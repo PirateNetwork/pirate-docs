@@ -1,0 +1,53 @@
+---
+layout: default
+title: z_importviewingkey
+parent: RPC / CLI
+nav_order: 20
+---
+
+## z_importviewingkey "vkey" ( rescan startHeight )
+
+Adds a viewing key (as returned by z_exportviewingkey) to your wallet.
+
+```
+Arguments:
+1. "vkey"             (string, required) The viewing key (see z_exportviewingkey)
+2. rescan             (string, optional, default="whenkeyisnew") Rescan the wallet for transactions - can be "yes", "no" or "whenkeyisnew"
+3. startHeight        (numeric, optional, default=0) Block height to start rescan from
+
+Note: This call can take minutes to complete if rescan is true.
+```
+```
+Result:
+{
+  "type" : "xxxx",                         (string) "sprout" or "sapling"
+  "address" : "address|DefaultAddress",    (string) The address corresponding to the viewing key (for Sapling, this is the default address).
+}
+```
+
+### Examples:
+
+Import a viewing key
+```
+pirate-cli z_importviewingkey "vkey"
+```
+
+Import the viewing key without rescan
+```
+pirate-cli z_importviewingkey "vkey", no
+```
+
+Import the viewing key with partial rescan
+```
+pirate-cli z_importviewingkey "vkey" whenkeyisnew 30000
+```
+
+Re-import the viewing key with longer partial rescan
+```
+pirate-cli z_importviewingkey "vkey" yes 20000
+```
+
+As a JSON-RPC call
+```
+curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "z_importviewingkey", "params": ["vkey", "no"] }' -H 'content-type: text/plain;' http://127.0.0.1:45453/
+```
