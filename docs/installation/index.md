@@ -10,6 +10,7 @@ permalink: docs/installation
 {: .no_toc }
 ### Build from source (recommended)
 {: .no_toc }
+
 Please see below the instructions to install Pirate daemon, best practices and tips.
 
 ```diff
