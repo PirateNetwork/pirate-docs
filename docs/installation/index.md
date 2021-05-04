@@ -21,12 +21,12 @@ PirateChain (ARRR) is a fully shielded chain and ***ONLY*** uses zs addresses - 
 RPC commands for Pirate start with z_ -> see **pirate-cli help** for a list of available commands
 
 Tested and supported on:
-* Ubuntu:
-  * 18.04
-  * 20.04
-* Debian:
-  * 9
-  * 10
-* CentOS:
-  * 7
-  * 8
+
+| Distro          | Version   |
+|-----------------|-----------|
+| Ubuntu          | 18.04     |
+|                 | 20.04     |
+| Debian          | 9         |
+|                 | 10        |
+| CentOS          | 7         |
+|                 | 8         |
