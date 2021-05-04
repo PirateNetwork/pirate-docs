@@ -1,21 +1,8 @@
 ---
 layout: default
-title: Installation
-nav_order: 2
+title: Ubuntu/Debian
+parent: Installation
 ---
-
-## Pirate Installation Guide
-
-### Build from source (recommended)
-
-Please see below the instructions to install Pirate daemon, best practices and tips.
-
-```diff
-- !!! IMPORTANT !!!
-```
-PirateChain (ARRR) is a fully shielded chain and ***ONLY*** uses zs addresses - transparent addresses are ***NOT*** permitted to perform transactions other than generating coinbase (mining) and notarizations by elected KMD notaries; the usual RPC commands generally don't apply
-
-RPC commands for Pirate start with z_ -> see **pirate-cli help** for a list of available commands
 
 ***1. Install dependencies***
 
