@@ -1,6 +1,7 @@
 remote_theme: mrmlynch/just-the-docs
 title: Pirate Chain Wiki
 description: Pirate Chain (ARRR) Documentation and Integration Guides
+logo: "/assets/img/Pirate_Logo.png"
 
 baseurl: "/"
 
