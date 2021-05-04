@@ -49,6 +49,7 @@ pirated &
 ```
 
 
-{: .text-red-300} !!! IMPORTANT !!!
+!!! IMPORTANT !!!
+{: .label .label-red }
 
 On first run of daemon the configuration file is created in ***~/.komodo/PIRATE/PIRATE.conf*** <- you can specify a different location by passing **-datadir=/path/to/data/dir** when running the daemon (***!!!*** if you do so you will need to run that param every time you run/restart the daemon)
