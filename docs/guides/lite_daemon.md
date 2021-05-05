@@ -186,12 +186,12 @@ sudo ln -sf /home/$USER/lightwalletd/lited /usr/local/bin/
 
 ### With NGINX and LetsEncrypt
 ```
-sudo lightwalletd -bind-addr 127.0.0.1:9068 -conf-file ~/.komodo/PIRATE/PIRATE.conf -no-tls
+sudo lited -bind-addr 127.0.0.1:9068 -conf-file ~/.komodo/PIRATE/PIRATE.conf -no-tls
 ```
 
 To log lited add **-log-file** to run command 
 ```
-sudo lightwalletd -bind-addr 127.0.0.1:9068 -conf-file ~/.komodo/PIRATE/PIRATE.conf -no-tls -log-file /path/to/logfile
+sudo lited -bind-addr 127.0.0.1:9068 -conf-file ~/.komodo/PIRATE/PIRATE.conf -no-tls -log-file /path/to/logfile
 ```
 NOTE
 {: .label .label-blue}
@@ -199,12 +199,12 @@ Since we are using NGINX to handle TLS authentication we need to pass **-no-tls*
 
 ### With your own certificate
 ```
-sudo lightwalletd -bind-addr 127.0.0.1:443 -conf-file ~/.komodo/PIRATE/PIRATE.conf -tls-cert cert.pem -tls-key key.pem
+sudo lited -bind-addr 127.0.0.1:443 -conf-file ~/.komodo/PIRATE/PIRATE.conf -tls-cert cert.pem -tls-key key.pem
 ```
 
 To log lited add **-log-file** to run command 
 ```
-sudo lightwalletd -bind-addr 127.0.0.1:443 -conf-file ~/.komodo/PIRATE/PIRATE.conf -tls-cert cert.pem -tls-key key.pem -log-file /path/to/logfile
+sudo lited -bind-addr 127.0.0.1:443 -conf-file ~/.komodo/PIRATE/PIRATE.conf -tls-cert cert.pem -tls-key key.pem -log-file /path/to/logfile
 ```
 
 You should start seeing the frontend ingest and cache the Pirate Chain blocks after ~15 seconds.
