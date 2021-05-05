@@ -21,4 +21,4 @@ Lite / Light Daemon server is used by lite and mobile Pirate Chain wallets. This
 ## Pre-requisites
 
 ### Install Pirate Daemon
-Please see [Installations](../installation) for Pirate Daemon setup instructions.
+Please see [Installations](../../installation) for Pirate Daemon setup instructions.
