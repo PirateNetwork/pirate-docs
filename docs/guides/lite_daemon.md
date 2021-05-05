@@ -86,7 +86,7 @@ Set DNS record pointing to your public IP of your server or load balancer if you
 
 Please follow the instructions of your DNS provider for this section.
 
-### Install nginx & certbot
+### Install nginx & certbot \*
 NOTE
 {: .label .label-blue}
 This section is required only if you want to use nginx as a reverse proxy and want to use LetsEncrypt certificates via certbot.
@@ -96,7 +96,7 @@ If you have your own certificates you can skip this section.
 sudo apt-get install nginx certbot python-certbot-nginx
 ```
 
-### Generate LetsEncrypt SSL certificate
+### Generate LetsEncrypt SSL certificate \*
 NOTE
 {: .label .label-blue}
 This section is required only if you want to use nginx as a reverse proxy and want to use LetsEncrypt certificates via certbot.
@@ -107,7 +107,7 @@ sudo certbot --nginx
 ```
 Fill in the blanks depending on your chosen hostname (i.e. lightd.myubercoollitewall.et)
 
-## Setup nginx
+## Setup nginx \*
 NOTE
 {: .label .label-blue}
 This section is required only if you want to use nginx as a reverse proxy and want to use LetsEncrypt certificates via certbot.
