@@ -93,7 +93,7 @@ This section is required only if you want to use nginx as a reverse proxy and wa
 If you have your own certificates you can skip this section.
 
 ```
-sudo apt-get install nginx certbot python-certbot-nginx
+sudo apt-get install nginx certbot python3-certbot-nginx
 ```
 
 ### Generate LetsEncrypt SSL certificate \*
@@ -117,7 +117,7 @@ Lited uses grpc and http2 therefore nginx must know how to receive and serve the
 
 ### Create nginx configuration for your host
 ```
-cd /etc/nginx/sites-available/ && sudo mv default default.bak && vim default
+cd /etc/nginx/sites-available/ && sudo mv default default.bak && sudo vim default
 ```
 NOTE
 {: .label .label-blue}
