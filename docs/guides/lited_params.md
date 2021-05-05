@@ -2,6 +2,7 @@
 layout: default
 title: Lited Parameters
 parent: Lite Daemon
+grand_parent: Guides
 nav_order: 1
 ---
 
