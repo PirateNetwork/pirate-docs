@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Lite Daemon
-parent: RPC / CLI
+parent: Guides
 nav_order: 7
 ---
 
@@ -21,4 +21,4 @@ Lite / Light Daemon server is used by lite and mobile Pirate Chain wallets. This
 ## Pre-requisites
 
 ### Install Pirate Daemon
-Please see [Installationa](../installation/) for Pirate Daemon setup instructions.
+Please see [Installations](../installation) for Pirate Daemon setup instructions.
