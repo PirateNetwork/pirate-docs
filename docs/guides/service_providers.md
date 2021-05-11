@@ -56,10 +56,10 @@ One rootkey can generate MANY zAddresses.
 This gives you a list of unspent notes (shielded utxos or shortly zutxos).
 It is recommended to index/cache in a local db the transactions that appear here along with txids and have your system mark them as credited or not - it will make your life easy in the long run if claims for _deposits not arriving_ will arise, but this is left to your own assessment depending on how your engine works
 
-#### [zs_listreceivedbyaddress <zAddr>](../../rpc/zs_listreceivedbyaddress)
+#### [zs_listreceivedbyaddress \<zAddr\>](../../rpc/zs_listreceivedbyaddress)
 This gives you a list of all transactions received by an address, however there is no information available as to where it came from - useful for cross referencing txids from this rpc call to txids with indexed txids from **z_listunspent** above.
 
-#### [zs_gettransaction <txid>](../../rpc/zs_gettransaction)
+#### [zs_gettransaction \<txid\>](../../rpc/zs_gettransaction)
 This gives you information about a txid.
 For funds sent you can see the originating address where funds were sent from (yours) and destination address, as well as amount.
 For funds received you only see your address and amount, along with other zk-SNARKs information such as commitment, rk, nullifier, whether a tx is **change** or not.
@@ -72,6 +72,7 @@ This will return an operation ID (opid) - it is **recommended** that opids along
 opids are cleared on daemon restart or when z_getoperationresult is called
 {: .label .label-red}
 
+<br>
 IMPORTANT
 {: .label .label-red}
 You **MUST** take into consideration `change` field when performing transactions - i.e. if 2 node system is not employed and partial withdraws are processed from deposit address of user you must account for change as it goes back to the same deposit address and you mustn't credit it to users' balance in your accounting system hence why using separate deposit/withdraw nodes is recommended to reduce overhead in your exchange engine.
@@ -81,14 +82,14 @@ NOTE
 Upto 200 receivers can be included in ONE z_sendmany operation.
 Example: `'[{"address":"zsAddr1","amount":1},{"address":"zAddr2","amount":2}]'`
 
-#### [z_getoperationstatus '\["<opid>"\]'](../../rpc/z_getoperationstatus)
+#### [z_getoperationstatus '\["\<opid\>"\]'](../../rpc/z_getoperationstatus)
 This returns a status and other useful information pertaining to a **z_sendmany**
 Status can be "success", "failed", "executing", "queued" -> you are interested in "success" and "failed" opids.
 
 #### [z_gettotalbalance](../../rpc/z_gettotalbalance)
 Displays total balance of wallet (all addresses).
 
-#### [z_getbalance <zAddr>](../../z_getbalance)
+#### [z_getbalance \<zAddr\>](../../z_getbalance)
 Displays balance of single zAddress.
 
 #### [z_getbalances](../../rpc/z_getbalances)
