@@ -18,7 +18,7 @@ Result:
 "path"             (string) The full path of the destination file
 ```
 
-Examples:
+### Examples:
 ```
 pirate-cli backupwallet "backupdata"
 ```
