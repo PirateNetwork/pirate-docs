@@ -69,10 +69,6 @@ Example: `z_sendmany "yourWithdrawZsAddress" '[{"address":"userZsAddress", "amou
 
 This will return an operation ID (opid) - it is **recommended** that opids along with related information are indexed/cached in a local database.
 
-opids are cleared on daemon restart or when z_getoperationresult is called
-{: .label .label-red}
-
-<br>
 IMPORTANT
 {: .label .label-red}
 You **MUST** take into consideration `change` field when performing transactions - i.e. if 2 node system is not employed and partial withdraws are processed from deposit address of user you must account for change as it goes back to the same deposit address and you mustn't credit it to users' balance in your accounting system hence why using separate deposit/withdraw nodes is recommended to reduce overhead in your exchange engine.
@@ -85,6 +81,9 @@ Example: `'[{"address":"zsAddr1","amount":1},{"address":"zAddr2","amount":2}]'`
 #### [z_getoperationstatus '\["\<opid\>"\]'](../../rpc/z_getoperationstatus)
 This returns a status and other useful information pertaining to a **z_sendmany**
 Status can be "success", "failed", "executing", "queued" -> you are interested in "success" and "failed" opids.
+
+opids are cleared on daemon restart or when z_getoperationresult is called
+{: .label .label-red}
 
 #### [z_gettotalbalance](../../rpc/z_gettotalbalance)
 Displays total balance of wallet (all addresses).
