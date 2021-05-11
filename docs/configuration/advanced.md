@@ -58,7 +58,8 @@ Default is 0. Set to 1 to enable.
 #### consolidationtxfee
 Fee amount in arrrtoshis used to send consolidation transactions.
 
-Default is 0. While using 0 fee may seem economical there is a chance that not all 0 txfee transactions will be included in blocks by miners. Recommended is 10000 arrrtoshi or 0.0001 ARRR which is the standard txfee.
+Default is 10000 arrrtoshi (or 0.0001 ARRR). Txfee of 0 can also be used but while using 0 fee may seem economical there is a chance that not all 0 txfee transactions will be included in blocks by miners.
+Recommended is 10000 arrrtoshi or 0.0001 ARRR which is the standard txfee.
 
 Note
 {: .label .label-blue }
@@ -98,6 +99,7 @@ When **sweep** is enabled a sweep z address must be specified.
 #### sweeptxfee
 Fee amount in arrrtoshis used to send sweep transactions.
 
-Default is 0. While using 0 fee may seem economical there is a chance that not all 0 txfee transactions will be included in blocks by miners. Recommended is 10000 arrrtoshi or 0.0001 ARRR which is the standard txfee.
+Default is 10000 arrrtoshi (or 0.0001 ARRR). Txfee of 0 can also be used but while using 0 fee may seem economical there is a chance that not all 0 txfee transactions will be included in blocks by miners.
+Recommended is 10000 arrrtoshi or 0.0001 ARRR which is the standard txfee.
 
 `sweeptxfee=10000`
