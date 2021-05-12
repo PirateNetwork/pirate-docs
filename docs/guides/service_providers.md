@@ -59,6 +59,9 @@ It is recommended to index/cache in a local db the transactions that appear here
 #### [zs_listreceivedbyaddress \<zAddr\>](../../rpc/zs_listreceivedbyaddress)
 This gives you a list of all transactions received by an address, however there is no information available as to where it came from - useful for cross referencing txids from this rpc call to txids with indexed txids from **z_listunspent** above.
 
+#### [zs_listsentbyaddress \<zAddr\>](../../rpc/zs_listsentbyaddress)
+This method returns decrypted outputs sent by a single zAddress. It can be used to validate outgoing transactions.
+
 #### [zs_gettransaction \<txid\>](../../rpc/zs_gettransaction)
 This gives you information about a txid.
 For funds sent you can see the originating address where funds were sent from (yours) and destination address, as well as amount.
