@@ -17,7 +17,7 @@ nav_order: 1
 
 # Migration Guide
 {: .no_toc}
-This section is for service providers to provide guidelines on how to best migrate from old daemon to new release (v5.1.0-rc1 and up)
+This section is for service providers to have a guideline on how to best migrate from old daemon to new release (v5.1.0-rc1 and up)
 
 ## Best Practice
 Let's assume you have 1 node named **node_OLD** processing operations running old daemon with old zAddresses.
@@ -40,8 +40,9 @@ make clean
 ```
 
 ### Restart node_OLD
-This will trigger a rescan. In order to not waste time on this process it is recommended to use parameter `-rescanheight` to minimize the number of blocks to rescan.
-You will have to ascertain the minimum blockHeight required to include all transactions processed by your service.
+This will trigger a rescan. In order to not waste precious time on this process it is recommended to use parameter `-rescanheight` to minimize the number of blocks to rescan.
+
+You will have to ascertain the minimum blockHeight required to include all transactions processed by your service to date.
 
 Example:
 You had your first Pirate Chain transactions on block 1,200,100
@@ -49,6 +50,7 @@ You had your first Pirate Chain transactions on block 1,200,100
 
 ## Setup node_NEW
 Depending on the OS follow [Installation](../../installation) instructions with a slight difference that we will build from `pirate_da` branch for now.
+
 Example below for Ubuntu 18.04 LTS
 
 ### Install dependencies
@@ -87,9 +89,7 @@ Please follow [Configuration](../../configuration) section, specifically [Advanc
 
 NOTE
 {: .label .label-blue}
-All configuration parameters can be used as arguments when running **pirated**
-
-i.e.: 
+All configuration parameters can be used as arguments when running **pirated**, i.e.: 
 ```
 pirated -consolidation=1 -consolidationtxfee=10000 -deletetx=1 -deleteinterval=100 -keeptxnum=1100 -rescanheight=1200000 &
 ```
