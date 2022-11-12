@@ -11,5 +11,5 @@ Official white paper for the Pirate Chain Network
 <p>
     <a href="/assets/whitepaper/Pirate_Chain_White_Paper.pdf">
     <img src="/assets/icons/pdf.png" />&nbsp; 
-    Pirate_Chain_White_Paper.pdf</a>
+    Pirate_Chain_White_Paper.pdf (v3)</a>
 </p>
