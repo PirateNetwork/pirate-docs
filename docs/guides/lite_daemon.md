@@ -25,7 +25,7 @@ Lite / Light Daemon server is used by lite and mobile Pirate Chain wallets. This
 Please see [Installation](../../installation) for Pirate Daemon setup instructions.
 
 ### Pirate Daemon Configuration
-The following PIRATE.conf is needed for lited to interact with ARRR blockchain, cache blocks and broadcast signed transactions.
+The following PIRATE.conf is needed for lightwalletd to interact with the ARRR blockchain, cache blocks and broadcast signed transactions.
 
 ```
 mkdir -p ~/.komodo/PIRATE
@@ -38,34 +38,40 @@ rpcbind=127.0.0.1
 rpcport=45453
 experimentalfeatures=1
 txindex=1
-insightexplorer=1
+addressindex=1
+timestampindex=1
+spentindex=1
 EOF
 
 chmod 600 ~/.komodo/PIRATE/PIRATE.conf
 ```
 
+Note
+{: .label .label-red }
+`insightexplorer` is no longer a valid PIRATE.conf option - it has been replaced by the three explicit index flags above (`addressindex`, `timestampindex`, `spentindex`), which is what lightwalletd's transparent-address RPCs actually need. If you're enabling any of `txindex`/`addressindex`/`timestampindex`/`spentindex` on a node that's already synced, you'll need to run `pirated -reindex` once for the new indexes to be built.
+
 ### Download blockchain data
-Pirate Chain Daemon needs to be in sync with the network before running lited, therefore while you go through the next steps run `pirated` to sync the blockchain or download [Bootstrap](../bootstrap) here.
+Pirate Chain Daemon needs to be in sync with the network before running lightwalletd, therefore while you go through the next steps run `pirated` to sync the blockchain or download [Bootstrap](../bootstrap) here.
 
 NOTE
 {: .label .label-blue }
 Syncing blockchain from scratch is recommended.
 
 ### Install golang
-Follow golang installation instructions from [https://golang.org/doc/install](https://golang.org/doc/install) or the instructions below.
+Follow golang installation instructions from [https://go.dev/doc/install](https://go.dev/doc/install) or the instructions below.
 
 NOTE
 {: .label .label-blue}
-At the time of writing this guide current golang version is go1.16.3 so it is best to follow the official documentation for this section as it might change
+lightwalletd's go.mod requires Go 1.17 or newer. Grab the current release filename from [https://go.dev/dl/](https://go.dev/dl/) and substitute it below - it changes over time so it's best to check the official page rather than hardcode a version here.
 
 ```
-wget https://golang.org/dl/go1.16.3.linux-amd64.tar.gz
+wget https://go.dev/dl/go<version>.linux-amd64.tar.gz
 
 # Extract the archive you downloaded into /usr/local, creating a Go tree in /usr/local/go.
 # Important: This step will remove a previous installation at /usr/local/go, if any, prior to extracting. Please back up any data before proceeding.
 # For example, run the following as root or through sudo:
 
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.3.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go<version>.linux-amd64.tar.gz
 
 # Add /usr/local/go/bin to the PATH environment variable.
 # You can do this by adding the following line to your $HOME/.profile or /etc/profile (for a system-wide installation):
@@ -113,7 +119,7 @@ NOTE
 This section is required only if you want to use nginx as a reverse proxy and want to use LetsEncrypt certificates via certbot.
 If you have your own certificates you can skip this section.
 
-Lited uses grpc and http2 therefore nginx must know how to receive and serve these.
+lightwalletd uses grpc and http2 therefore nginx must know how to receive and serve these.
 
 ### Create nginx configuration for your host
 ```
@@ -145,7 +151,7 @@ server {
 	# SSL configuration
 
 	location / {
-		grpc_pass grpc://127.0.0.1:9068;
+		grpc_pass grpc://127.0.0.1:9067;
 	}
 
     listen 443 ssl http2; # managed by Certbot
@@ -172,39 +178,59 @@ NOTE
 {: .label .label-blue}
 Replace **lightd.myubercoollitewall.et** with your hostname.
 
-## Build lited
+NOTE
+{: .label .label-red}
+lightwalletd's gRPC server now defaults to port **9067**, not 9068 - 9068 is now the separate HTTP port it uses for Prometheus metrics and Sapling parameter downloads. The `grpc_pass` line above points at 9067 for that reason; don't reuse 9068 for both.
+
+## Build lightwalletd
 ```
 cd ~ && git clone https://github.com/PirateNetwork/lightwalletd
 ```
 ```
-cd ~/lightwalletd && go build -o lited cmd/server/main.go
+cd ~/lightwalletd && go build -buildvcs=false
 
-sudo ln -sf /home/$USER/lightwalletd/lited /usr/local/bin/
+sudo ln -sf /home/$USER/lightwalletd/lightwalletd /usr/local/bin/
 ```
 
-## Run lited
+NOTE
+{: .label .label-blue}
+The binary and repo layout changed - there's no `cmd/server/main.go` anymore, and the built binary is named `lightwalletd`, not `lited`. `make build` from the repo root does the same thing.
+
+## Run lightwalletd
+
+The flags also changed: `-bind-addr`, `-conf-file`, `-no-tls` and `-cache-size` no longer exist. Use `--grpc-bind-addr`, `--pirate-conf-path`, `--no-tls-very-insecure` and `--data-dir` instead. See [Lightwalletd Parameters](lited_params) for the full list.
 
 ### With NGINX and LetsEncrypt
 ```
-sudo lited -bind-addr 127.0.0.1:9068 -conf-file ~/.komodo/PIRATE/PIRATE.conf -no-tls
+sudo lightwalletd --grpc-bind-addr 127.0.0.1:9067 --pirate-conf-path ~/.komodo/PIRATE/PIRATE.conf --no-tls-very-insecure
 ```
 
-To log lited add **-log-file** to run command 
+To log lightwalletd add **--log-file** to run command 
 ```
-sudo lited -bind-addr 127.0.0.1:9068 -conf-file ~/.komodo/PIRATE/PIRATE.conf -no-tls -log-file /path/to/logfile
+sudo lightwalletd --grpc-bind-addr 127.0.0.1:9067 --pirate-conf-path ~/.komodo/PIRATE/PIRATE.conf --no-tls-very-insecure --log-file /path/to/logfile
 ```
 NOTE
 {: .label .label-blue}
-Since we are using NGINX to handle TLS authentication we need to pass **-no-tls** to lited. 
+Since we are using NGINX to handle TLS authentication we need to pass **--no-tls-very-insecure** to lightwalletd. Despite the alarming name, this is the correct and expected setting for this NGINX-fronted setup - lightwalletd is only listening on loopback, so there's no unencrypted traffic leaving the box.
 
 ### With your own certificate
 ```
-sudo lited -bind-addr 127.0.0.1:443 -conf-file ~/.komodo/PIRATE/PIRATE.conf -tls-cert cert.pem -tls-key key.pem
+sudo lightwalletd --grpc-bind-addr 127.0.0.1:443 --pirate-conf-path ~/.komodo/PIRATE/PIRATE.conf --tls-cert cert.pem --tls-key key.pem
 ```
 
-To log lited add **-log-file** to run command 
+To log lightwalletd add **--log-file** to run command 
 ```
-sudo lited -bind-addr 127.0.0.1:443 -conf-file ~/.komodo/PIRATE/PIRATE.conf -tls-cert cert.pem -tls-key key.pem -log-file /path/to/logfile
+sudo lightwalletd --grpc-bind-addr 127.0.0.1:443 --pirate-conf-path ~/.komodo/PIRATE/PIRATE.conf --tls-cert cert.pem --tls-key key.pem --log-file /path/to/logfile
 ```
 
-You should start seeing the frontend ingest and cache the Pirate Chain blocks after ~15 seconds.
+You should start seeing the frontend ingest and cache the Pirate Chain blocks after ~15 seconds. Compact blocks are cached under `--data-dir` (default `/var/lib/lightwalletd`) - make sure that path is writable by whichever user runs lightwalletd, or override it.
+
+### Tor & I2P (optional)
+
+If pirated is running with its own embedded Tor/I2P daemons (`torautostart`/`i2pdautostart`, on by default), lightwalletd can reuse them to publish itself as a hidden service / I2P destination instead of relying only on the reverse proxy:
+
+```
+sudo lightwalletd --grpc-bind-addr 127.0.0.1:9067 --pirate-conf-path ~/.komodo/PIRATE/PIRATE.conf --no-tls-very-insecure --tor-enable --i2p-enable
+```
+
+The resulting addresses are written to `<data-dir>/tor/hostname` and `<data-dir>/i2p/hostname`. Both are opt-in and non-fatal - if Tor or i2pd isn't reachable, lightwalletd logs a warning and keeps serving clearnet clients. See [Lightwalletd Parameters](lited_params) for the Tor/I2P flags.
